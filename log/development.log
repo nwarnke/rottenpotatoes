@@ -1807,3 +1807,78 @@ Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db6
 
 
 Started GET "/assets/application.self-ac4347b135ab8935f2dd20089f2acc8bec1d6b2ad528a80fcb03cd445dbd4d27.js?body=1" for 69.58.248.1 at 2016-07-11 17:19:19 +0000
+
+
+Started GET "/" for 69.58.248.1 at 2016-07-11 17:53:17 +0000
+
+
+Started GET "/movies" for 69.58.248.1 at 2016-07-11 17:53:18 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (51.0ms)
+Completed 200 OK in 545ms (Views: 450.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/movies/new" for 69.58.248.1 at 2016-07-11 17:53:20 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (41.0ms)
+Completed 200 OK in 68ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 69.58.248.1 at 2016-07-11 17:53:27 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LkZwdBURJCieJqi4IqlXAzkdMPGLADAtc6TsnDUsZm1sDNfK9RnbiYzQa4jVzx13MERnqE+kjxTCEeiDT85+yA==", "movie"=>{"title"=>"gsags", "rating"=>"G", "release_date(1i)"=>"2016", "release_date(2i)"=>"7", "release_date(3i)"=>"11", "director"=>"sgsagsdg"}, "commit"=>"Save Changes"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "director", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "gsags"], ["rating", "G"], ["director", "sgsagsdg"], ["release_date", "2016-07-11 00:00:00.000000"], ["created_at", "2016-07-11 17:53:27.184893"], ["updated_at", "2016-07-11 17:53:27.184893"]]
+  [1m[35m (14.9ms)[0m  commit transaction
+Redirected to https://csci4830-nwarnke.c9users.io/movies
+Completed 302 Found in 162ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/movies" for 69.58.248.1 at 2016-07-11 17:53:27 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (10.5ms)
+Completed 200 OK in 54ms (Views: 52.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/12" for 69.58.248.1 at 2016-07-11 17:53:30 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 78ms (Views: 68.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/12/edit" for 69.58.248.1 at 2016-07-11 17:54:32 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movies/edit.html.haml within layouts/application (18.7ms)
+Completed 200 OK in 71ms (Views: 69.0ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/movies/12" for 69.58.248.1 at 2016-07-11 17:54:36 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XhL3rEARPWCRj0Wv6UZaepyy+fGpEMwN6ZVW6jj2L5YcWFASoBnCwYN5hp8eIBAOleuuqG20czRYIFL1QhQ3Mw==", "movie"=>{"title"=>"gsags", "director"=>"jjjjjjj", "rating"=>"G", "release_date(1i)"=>"2016", "release_date(2i)"=>"7", "release_date(3i)"=>"11"}, "commit"=>"Update Movie Info", "id"=>"12"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "movies" SET "director" = ?, "updated_at" = ? WHERE "movies"."id" = ?  [["director", "jjjjjjj"], ["updated_at", "2016-07-11 17:54:36.365472"], ["id", 12]]
+  [1m[36m (11.9ms)[0m  [1mcommit transaction[0m
+Redirected to https://csci4830-nwarnke.c9users.io/movies/12
+Completed 302 Found in 174ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/movies/12" for 69.58.248.1 at 2016-07-11 17:54:36 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies" for 69.58.248.1 at 2016-07-11 17:54:38 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (8.0ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.8ms)
